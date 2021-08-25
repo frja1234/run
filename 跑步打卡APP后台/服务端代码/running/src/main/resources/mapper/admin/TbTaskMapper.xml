@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbTaskMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbTask">
+    <id column="task_id" property="taskId" />
+    <result column="task_name" property="taskName" />
+    <result column="task_require_distance" property="taskRequireDistance" />
+    <result column="task_require_time" property="taskRequireTime" />
+    <result column="task_deadline" property="taskDeadline" />
+    <result column="is_overtime" property="isOvertime" />
+    <result column="select_classes" property="selectClasses"/>
+
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_user" property="updateUser" />
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+    tk.task_id, tk.task_name, tk.task_require_distance, tk.task_require_time, tk.task_deadline, tk.is_overtime,
+    tk.create_time, tk.create_user, tk.update_time, tk.update_user, tk.select_classes
+   </sql>
+
+  <!--
+        查找所有任务信息
+    -->
+  <select id="selectTask" resultMap="BaseResultMap" parameterType="com.scy.running.model.TbTask">
+    select
+    <include refid="Base_Column_List" />
+    from  tb_task tk
+    where 1=1
+    <if test="obj.taskId != null">
+      and tk.task_id = #{obj.taskId}
+    </if>
+    <if test="obj.taskName != null and obj.taskName != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and tk.task_name LIKE concat('%', #{obj.taskName}, '%')
+    </if>
+    order by tk.task_id desc
+  </select>
+
+  <!--
+        根据任务id查询任务的信息
+    -->
+  <select id="selectTaskById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+       tk.task_id, tk.task_name, tk.task_require_distance,
+       tk.task_require_time, tk.task_deadline, tk.is_overtime, tk.select_classes
+    from  tb_task tk
+    where tk.task_id = #{taskId}
+  </select>
+
+
+
+
+  <resultMap id="BaseResultMapVo" type="com.scy.running.model.TbTaskVo">
+    <result column="ended" property="ended" />
+    <result column="not_end" property="notEnd" />
+  </resultMap>
+  <!--
+        根据任务id查询任务的进度，包括完成人数，未完成人数
+    -->
+  <select id="selectProcessByTaskId" resultMap="BaseResultMapVo" parameterType="java.lang.Integer">
+    select SUM(case when tpc.punch_clock_state = 1 then 1 else 0 END) as 'ended',
+           SUM(case when tpc.punch_clock_state = 0 then 1 else 0 END) as 'not_end'
+    from tb_punch_clock tpc
+    where tpc.task_id = #{taskId}
+  </select>
+
+
+  <!--
+      根据日期修改任务超时
+  -->
+  <update id="updateTaskByDate" parameterType="java.lang.String">
+    update tb_task tt set tt.is_overtime = 1, tt.update_time = #{dateStr}
+    where tt.task_deadline = #{dateStr}
+  </update>
+
+
+</mapper>

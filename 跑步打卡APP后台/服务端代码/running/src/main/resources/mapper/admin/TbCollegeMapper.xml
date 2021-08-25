@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbCollegeMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbCollege">
+    <id column="college_id" property="collegeId" />
+    <result column="college_name" property="collegeName" />
+    <result column="college_code" property="collegeCode" />
+    <result column="college_introduction" property="collegeIntroduction" />
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+    tco.college_id, tco.college_name, tco.college_code, tco.college_introduction
+   </sql>
+
+  <!--
+        查找所有学院
+    -->
+  <select id="selectCollege" resultMap="BaseResultMap" parameterType="com.scy.running.model.TbCollege">
+    select
+    <include refid="Base_Column_List" />
+    from  tb_college tco
+    where 1=1
+    <if test="obj.collegeId != null">
+      and tco.college_id = #{obj.collegeId}
+    </if>
+    <if test="obj.collegeName != null and obj.collegeName != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and tco.college_name LIKE concat('%', #{obj.collegeName}, '%')
+    </if>
+    <if test="obj.collegeCode != null and obj.collegeCode != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and tco.college_code LIKE concat('%', #{obj.collegeCode}, '%')
+    </if>
+    order by tco.college_id desc
+  </select>
+
+  <!--
+    查找所有得学院信息
+   -->
+  <select id="selectCollegeAll" resultMap="BaseResultMap">
+    select
+      tco.college_id, tco.college_name
+    from  tb_college tco
+    order by tco.college_id desc
+  </select>
+
+
+
+  <!--
+      根据学院代码查询是否存在学院
+  -->
+  <select id="selectCountByCollegeCode" resultType="java.lang.Integer" parameterType="java.util.Map">
+    select COUNT(tco.college_id) from tb_college tco
+    where tco.college_code = #{collegeCode}
+    <if test="collegeId != null and collegeId != ''">
+      and tco.college_id != #{collegeId}
+    </if>
+  </select>
+
+
+  <!--
+    查找学院信息
+  -->
+  <select id="selectCollegeById" resultMap="BaseResultMap"  parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from
+    tb_college tco
+    where
+    tco.college_id = #{collegeId}
+  </select>
+
+  <!--
+    把学院下的班级的collegeId设为null
+  -->
+  <update id="updateClassCollegeIdToNullByCollegeId" parameterType="java.lang.Integer">
+    update tb_class set college_id = null
+    where college_id = #{collegeId}
+  </update>
+
+</mapper>

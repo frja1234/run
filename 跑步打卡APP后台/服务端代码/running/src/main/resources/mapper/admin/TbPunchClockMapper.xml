@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbPunchClockMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbPunchClock">
+    <id column="punch_clock_id" property="punchClockId" />
+    <result column="run_total_length" property="runTotalLength" />
+    <result column="punch_clock_state" property="punchClockState" />
+    <result column="run_total_time" property="runTotalTime" />
+    <result column="punch_clock_start_time" property="punchClockStartTime" />
+    <result column="punch_clock_end_time" property="punchClockEndTime" />
+
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_user" property="updateUser" />
+
+    <result column="user_id" property="userId" />
+
+    <association property="task" javaType="com.scy.running.model.TbTask">
+      <id column="task_id" property="taskId" />
+      <!-- 写出需要查询的字段 -->
+      <result column="task_name" property="taskName" />
+      <result column="task_require_distance" property="taskRequireDistance" />
+      <result column="task_require_time" property="taskRequireTime" />
+      <result column="task_deadline" property="taskDeadline" />
+    </association>
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+    tpc.punch_clock_id,  tpc.run_total_length,  tpc.punch_clock_state,  tpc.run_total_time,
+    tpc.punch_clock_start_time,  tpc.punch_clock_end_time,
+    tpc.create_time, tpc.create_user, tpc.update_time, tpc.update_user
+   </sql>
+
+  <resultMap id="BaseResultMapApp" type="com.scy.running.model.TbPunchClock">
+    <id column="punch_clock_id" property="punchClockId" />
+    <result column="run_total_length" property="runTotalLength" />
+    <result column="run_total_time" property="runTotalTime" />
+    <result column="punch_clock_state" property="punchClockState" />
+
+    <association property="task" javaType="com.scy.running.model.TbTask">
+      <id column="task_id" property="taskId" />
+      <!-- 写出需要查询的字段 -->
+      <result column="task_name" property="taskName" />
+      <result column="task_require_distance" property="taskRequireDistance" />
+      <result column="task_require_time" property="taskRequireTime" />
+    </association>
+  </resultMap>
+
+  <!--
+        根据userId查找当天的打卡信息
+    -->
+  <select id="selectPunchClockByUserIdApp" resultMap="BaseResultMapApp" parameterType="java.lang.Integer">
+    select pc.punch_clock_id, pc.run_total_length, pc.run_total_time, pc.punch_clock_state,
+           pc.task_id, tt.task_name, tt.task_require_distance, tt.task_require_time
+    from tb_punch_clock pc, tb_task tt
+    where pc.user_id = #{userId}
+      and tt.task_id = pc.task_id
+      and tt.is_overtime = 0
+    order by pc.task_id desc
+  </select>
+
+  <!--
+       根据taskId删除对应的打卡记录
+    -->
+  <delete id="deletePunchClockByTaskId" parameterType="java.lang.Integer">
+    delete from tb_punch_clock
+    where task_id = #{taskId}
+  </delete>
+
+  <!--
+       删除用户下的所有打卡记录
+    -->
+  <delete id="deletePunchClockByUserId" parameterType="java.lang.Integer">
+    delete from tb_punch_clock
+    where user_id = #{userId}
+  </delete>
+</mapper>

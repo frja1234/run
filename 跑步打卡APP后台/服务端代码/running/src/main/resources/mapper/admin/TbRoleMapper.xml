@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbRoleMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbRole">
+    <id column="role_id" property="roleId" />
+    <result column="role_name" property="roleName" />
+    <result column="role_code" property="roleCode" />
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_user" property="updateUser" />
+    <result column="remarks" property="remarks" />
+    <result column="token" property="token" />
+    <result column="def_flag" property="defFlag" />
+  </resultMap>
+
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+      r.role_id, r.role_name, r.role_code, r.create_time, r.create_user, r.update_time, r.update_user, r.remarks, r.def_flag, r.token
+   </sql>
+
+  <!--
+    查找角色信息
+  -->
+  <select id="selectRole" resultMap="BaseResultMap"  parameterType="com.scy.running.model.TbRole">
+    select
+    <include refid="Base_Column_List" />
+    from
+    tb_role r
+    where
+     1 = 1
+    <if test="obj.roleId != null">
+      and r.role_id = #{obj.roleId}
+    </if>
+    <if test="obj.roleName != null and obj.roleName != ''">
+      and r.role_name LIKE concat('%', #{obj.roleName}, '%')
+    </if>
+    <if test="obj.roleCode != null and obj.roleCode != ''">
+      and r.role_code LIKE concat('%', #{obj.roleCode}, '%')
+    </if>
+    <if test="obj.defFlag != null">
+      and r.def_flag = #{obj.defFlag}
+    </if>
+    order by r.role_id desc
+  </select>
+
+
+  <!--
+    查找所有角色信息，不分页
+  -->
+  <select id="selectRoleNoPage" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from
+    tb_role r
+    order by r.role_id desc
+  </select>
+
+  <!--
+    查找角色信息
+  -->
+  <select id="selectRoleById" resultMap="BaseResultMap"  parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    from
+    tb_role r
+    where
+    r.role_id = #{roleId}
+  </select>
+
+
+  <!--
+    根据角色代码，查询是否已经存在相同的角色代码，用于角色新增的校验
+  -->
+  <select id="selectCountByRoleCode" resultType="java.lang.Integer" parameterType="java.lang.String">
+    select
+      count(*)
+    from tb_role
+    where  role_code = #{roleCode}
+  </select>
+
+  <!--
+    根据角色id查找角色权限表（tb_role_permission）中的角色权限id集合
+    select
+      permission_id
+    from tb_role_permission
+    where  role_id = #{roleId}
+  -->
+  <select id="selectRolePermissionByRoleId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+
+    select trp.permission_id from tb_role_permission trp, tb_permission tp
+    where
+      trp.permission_id = tp.permission_id
+      AND trp.role_id = #{roleId}
+      AND isnull(tp.parent_permission_id) = 0
+  </select>
+
+
+
+
+  <!--
+    根据角色id删除对应的角色权限(表： tb_role_permission)
+   -->
+  <delete id="deleteRolePermissionByRoleId" parameterType="java.lang.Integer">
+    delete from tb_role_permission
+    where tb_role_permission.role_id = #{roleId}
+  </delete>
+
+  <!--
+   根据id 注销角色
+  -->
+  <update id="cancelRoleById" parameterType="java.lang.Integer">
+    update tb_role set def_flag = 1
+    where role_id = #{roleId}
+  </update>
+
+  <!--
+    根据角色id 把用户表中对应呃的角色id 设为 NULL
+   -->
+  <update id="cancelUserRoleByRoleId" parameterType="java.lang.Integer">
+    update tb_user set role_id = NULL
+    where role_id = #{roleId}
+  </update>
+
+
+  <!--
+   根据id 激活角色
+  -->
+  <update id="activateRoleById" parameterType="java.lang.Integer">
+    update tb_role set def_flag = 0
+    where role_id = #{roleId}
+  </update>
+
+  <!--
+    根据角色id 和 权限id 给角色授权
+   -->
+  <insert id="grantRolePermissionByRoleIdAndPermissionId" parameterType="java.util.Map">
+    insert into tb_role_permission(role_id, permission_id) values (#{roleId}, #{permissionId})
+  </insert>
+
+
+</mapper>

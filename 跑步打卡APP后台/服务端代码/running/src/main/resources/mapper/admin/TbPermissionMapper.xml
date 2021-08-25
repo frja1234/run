@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbPermissionMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbPermission">
+    <id column="permission_id" property="permissionId" />
+    <result column="permission_name" property="permissionName" />
+    <result column="permission_path" property="permissionPath" />
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_user" property="updateUser" />
+    <!--<result column="parent_permission_id" property="parentPermissionId">-->
+    <result column="def_flag" property="defFlag" />
+    <association property="parentPermission" javaType="com.scy.running.model.TbPermission">
+      <id column="parent_permission_id" property="permissionId" />
+      <!-- 写出需要查询的字段 -->
+      <result column="parent_permission_name" property="permissionName" />
+      <result column="parent_permission_path" property="permissionPath" />
+    </association>
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+      tp.permission_id, tp.permission_name, tp.permission_path, tp.create_time, tp.create_user, tp.update_time, tp.update_user, tp.parent_permission_id, tp.def_flag
+   </sql>
+
+  <resultMap id="PermissionListResultMap" type="com.scy.running.model.TbPermission">
+    <id column="permission_id" property="permissionId" />
+    <result column="permission_name" property="permissionName" />
+    <result column="permission_path" property="permissionPath" />
+  </resultMap>
+  <!--
+     根据角色id查询角色下所有的角色权限
+     select tep.* FROM
+      (select
+         tp.permission_id, tp.permission_name, tp.permission_path, tp.def_flag,
+         tp.parent_permission_id,
+         parp.permission_name AS "parent_permission_name",
+         parp.permission_path AS "parent_permission_path"
+       from tb_permission tp
+       left join tb_permission parp ON tp.parent_permission_id = parp.permission_id) tep
+       , tb_role_permission trp, tb_role tr
+    where tr.role_id = trp.role_id
+      and trp.permission_id = tep.permission_id
+      and tep.def_flag = 0
+      and tr.role_id = #{roleId}
+   -->
+  <select id="selectPermissionListByRoleId" resultMap="PermissionListResultMap" parameterType="java.lang.Integer">
+    select
+      tp.permission_id, tp.permission_name, tp.permission_path
+    from tb_permission tp, tb_role_permission trp, tb_role tr
+    where tr.role_id = trp.role_id
+      and trp.permission_id = tp.permission_id
+      and tp.def_flag = 0
+      and tr.role_id = #{roleId}
+    order by tp.permission_id desc
+  </select>
+
+  <!--
+      查找所有权限信息(查询子权限的同时，显示其父权限的信息，若没有父权限，则表示为null)
+      def_flag: 有权限可看到所有的节点，没权限只能看到已激活的节点
+  -->
+  <select id="selectPermission" resultMap="BaseResultMap" parameterType="com.scy.running.model.TbPermission">
+    select
+    <include refid="Base_Column_List" />
+    , parp.permission_name as "parent_permission_name"
+    , parp.permission_path as "parent_permission_path"
+    from  tb_permission tp
+    left join tb_permission parp ON tp.parent_permission_id = parp.permission_id
+    where 1=1
+    <if test="obj.permissionId != null">
+      and tp.permission_id = #{obj.permissionId}
+    </if>
+    <if test="obj.permissionName != null and obj.permissionName != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and tp.permission_name LIKE concat('%', #{obj.permissionName}, '%')
+    </if>
+    <if test="obj.defFlag != null">
+      and tp.def_flag = #{obj.defFlag}
+    </if>
+    order by tp.permission_id desc
+  </select>
+
+  <!--
+    根据权限名称，查询是否已经存在相同的权限名称，用于权限新增的校验
+  -->
+  <select id="selectCountByPermissionName" resultType="java.lang.Integer" parameterType="java.lang.String">
+    select
+    count(*)
+    from tb_permission
+    where  permission_name = #{permissionName}
+  </select>
+
+  <!--
+     根据父级权限id 查找 其子集权限的id集
+     def_flag: 有权限可看到所有的节点，没权限只能看到已激活的节点
+  -->
+  <select id="selectListPermissionIdByParentId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    select
+    tp.permission_id
+    from tb_permission tp
+    where  1 = 1
+    <if test="parentPermissionId != null">
+    and tp.parent_permission_id = #{parentPermissionId}
+    </if>
+    order by tp.permission_id desc
+  </select>
+
+  <!--
+      根据权限id查询权限的信息
+  -->
+  <select id="selectPermissionById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    , parp.permission_name as "parent_permission_name"
+    , parp.permission_path as "parent_permission_path"
+    from  tb_permission tp
+    left join tb_permission parp ON tp.parent_permission_id = parp.permission_id
+    where tp.permission_id = #{permissionId}
+  </select>
+
+
+
+
+  <!--
+    根据permissionId删除角色权限(表： tb_role_permission)
+  -->
+  <delete id="deleteRolePermissionByPermissionId" parameterType="java.lang.Integer">
+    delete from tb_role_permission
+    where tb_role_permission.permission_id = #{permissionId}
+  </delete>
+
+  <!--
+    根据父级权限的id，直接删除所有子集权限
+  -->
+  <delete id="deleteChildPermissionByParentId" parameterType="java.lang.Integer">
+    delete from tb_permission
+    where tb_permission.parent_permission_id = #{permissionId}
+  </delete>
+
+
+  <!--
+    根据id 注销权限
+   -->
+  <update id="cancelPermissionById" parameterType="java.lang.Integer">
+    update tb_permission set def_flag = 1
+    where permission_id = #{permissionId}
+  </update>
+
+  <!--
+    根据父级权限的id 把父级权限的id设为NULL
+   -->
+  <update id="cancelPermissionByParentId" parameterType="java.lang.Integer">
+    update tb_permission set parent_permission_id = NULL
+    where parent_permission_id = #{parentPermissionId}
+  </update>
+
+  <!--
+    根据id 激活权限
+   -->
+  <update id="activatePermissionById" parameterType="java.lang.Integer">
+    update tb_permission set def_flag = 0
+    where permission_id = #{permissionId}
+  </update>
+
+</mapper>

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbUserMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbUser">
+    <id column="user_id" property="userId" />
+    <result column="user_nick_name" property="userNickName" />
+    <result column="user_qq" property="userQq" />
+    <result column="user_vx" property="userVx" />
+    <result column="user_cell_phone" property="userCellPhone" />
+    <result column="user_password" property="userPassword" />
+    <result column="create_time" property="createTime" />
+    <result column="create_user" property="createUser" />
+    <result column="update_time" property="updateTime" />
+    <result column="update_user" property="updateUser" />
+    <result column="last_login_time" property="lastLoginTime" />
+    <result column="last_login_ip" property="lastLoginIp" />
+    <result column="last_login_mode" property="lastLoginMode" />
+    <result column="user_num" property="userNum" />
+    <result column="def_flag" property="defFlag" />
+    <result column="user_real_name" property="userRealName" />
+    <result column="img" property="img" />
+    <result column="class_name" property="className" />
+    <result column="class_id" property="classId" />
+    <association property="role" javaType="com.scy.running.model.TbRole">
+      <id column="role_id" property="roleId" />
+      <!-- 写出需要查询的字段 -->
+      <result column="role_name" property="roleName" />
+      <result column="token" property="token" />
+    </association>
+    <association property="teacher" javaType="com.scy.running.model.TbUser">
+      <id column="teacher_user_id" property="userId" />
+      <!-- 写出需要查询的字段 -->
+      <result column="teacher_user_real_name" property="userRealName" />
+      <!--<result column="teacher_user_cell_phone" property="userCellPhone" />
+      <result column="teacher_user_nick_name" property="userNickName" />
+      <result column="teacher_user_num" property="userNum" />-->
+    </association>
+  </resultMap>
+
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+    u.user_id, u.user_nick_name, u.user_num, u.user_qq, u.user_vx, u.user_cell_phone, u.user_password,
+    u.create_time, u.create_user, u.update_time, u.update_user, u.last_login_time, u.last_login_ip,
+    u.last_login_mode, u.def_flag, u.user_real_name, u.img
+  </sql>
+
+  <!--
+    查询用户（条件查询）分页
+    , teach.user_cell_phone AS "teacher_user_cell_phone"
+    , teach.user_real_name AS "teacher_user_real_name"
+    , teach.user_num AS "teacher_user_num"
+   -->
+  <select id="selectUser" resultMap="BaseResultMap" parameterType="com.scy.running.model.TbUser">
+    select
+    <include refid="Base_Column_List" />
+    , r.role_id, r.role_name, r.token
+    , teach.user_id AS "teacher_user_id"
+    , teach.user_real_name AS "teacher_user_real_name"
+    , tcl.class_id AS "class_id"
+    , tcl.class_name AS "class_name"
+    from  tb_user u
+    left join tb_role r ON u.role_id = r.role_id
+    left join tb_user teach ON u.teacher_id = teach.user_id
+    left join tb_class tcl ON tcl.class_id = u.class_id
+    where 1=1
+    <if test="obj.classId != null and obj.classId != ''">
+      and tcl.class_id = #{obj.classId}
+    </if>
+    <if test="obj.roleToken != null and obj.roleToken != ''">
+      and r.token = #{obj.roleToken}
+    </if>
+    <if test="obj.userId != null and obj.userId != ''">
+      and u.user_id = #{obj.userId}
+    </if>
+    <if test="obj.userNum != null and obj.userNum != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and u.user_num = #{obj.userNum}
+    </if>
+    <if test="obj.userNickName != null and obj.userNickName != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and u.user_nick_name LIKE concat('%', #{obj.userNickName}, '%')
+    </if>
+    <if test="obj.userRealName != null and obj.userRealName != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and u.user_real_name LIKE concat('%', #{obj.userRealName}, '%')
+    </if>
+    <if test="obj.userCellPhone != null and obj.userCellPhone != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and u.user_cell_phone = #{obj.userCellPhone}
+    </if>
+    <if test="obj.defFlag != null">
+      and u.def_flag = #{obj.defFlag}
+    </if>
+    order by u.user_id desc
+  </select>
+
+  <!--
+    查询用户（userId查询单个用户）
+   -->
+  <select id="selectUserById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    select
+    <include refid="Base_Column_List" />
+    , r.role_id, r.role_name, r.token
+    , teach.user_id AS "teacher_user_id"
+    , teach.user_real_name AS "teacher_user_real_name"
+    , tcl.class_id AS "class_id"
+    , tcl.class_name AS "class_name"
+    from  tb_user u
+    left join tb_role r ON u.role_id = r.role_id
+    left join tb_user teach ON u.teacher_id = teach.user_id
+    left join tb_class tcl ON tcl.class_id = u.class_id
+    where u.user_id = #{userId}
+  </select>
+
+  <resultMap id="APPBaseResultMap" type="com.scy.running.model.TbUser">
+    <id column="user_id" property="userId" />
+    <result column="user_nick_name" property="userNickName" />
+    <result column="user_qq" property="userQq" />
+    <result column="user_vx" property="userVx" />
+    <result column="user_cell_phone" property="userCellPhone" />
+    <result column="user_password" property="userPassword" />
+    <result column="user_num" property="userNum" />
+    <result column="user_real_name" property="userRealName" />
+    <result column="img" property="img" />
+    <result column="college_name" property="collegeName" />
+    <result column="class_name" property="className" />
+  </resultMap>
+  <!--
+    查询用户APP（userId查询单个用户）
+    select
+      u.user_id, u.user_nick_name, u.user_num, u.user_qq, u.user_vx, u.user_cell_phone, u.user_password,
+      u.user_real_name, u.img
+    from  tb_user u
+    where u.user_id = #{userId}
+   -->
+  <select id="selectUserByIdAPP" resultMap="APPBaseResultMap" parameterType="java.lang.Integer">
+    select tucl.*, tco.college_name from
+      (select
+         u.user_id, u.user_nick_name, u.user_num, u.user_qq, u.user_vx, u.user_cell_phone, u.user_password,
+         u.user_real_name, u.img, tcl.class_name, tcl.college_id
+       from  tb_user u
+               left join tb_class tcl on tcl.class_id = u.class_id
+       where u.user_id = #{userId}
+      ) tucl LEFT JOIN tb_college tco ON tco.college_id = tucl.college_id
+  </select>
+
+  <!--
+    用户登录：根据手机号和密码验证(def_flag = 1 —— 已注销的用户不考虑)
+    通过手机号和密码获取用户的userId，如果userId不为null，则代表用户存在（登录成功）
+    随后再调用selectUser 函数 通过userId获取到user的所有信息，包括user下的role，permissionList等信息
+   -->
+  <select id="loginUserByObj" parameterType="com.scy.running.model.TbUser" resultType="java.lang.Integer">
+    select
+   <!-- <include refid="Base_Column_List" />
+    , r.role_id, r.role_name-->
+    u.user_id
+    from  tb_user u
+  <!--left join tb_role r ON u.role_id = r.role_id-->
+  where u.def_flag = 0
+  and u.user_num = #{userNum}
+  and u.user_password = #{userPassword}
+</select>
+
+
+
+  <resultMap id="LoginTokenResultMap" type="com.scy.running.model.TbUser">
+    <id column="user_id" property="userId" />
+    <result column="role_token" property="roleToken" />
+  </resultMap>
+
+  <!--
+    用户登录：根据手机号和密码验证(def_flag = 1 —— 已注销的用户不考虑)
+   -->
+  <select id="loginUserAndRoleTokenByObj" parameterType="com.scy.running.model.TbUser" resultMap="LoginTokenResultMap">
+    select
+    u.user_id, r.token as 'role_token'
+    from  tb_user u
+    left join tb_role r ON u.role_id = r.role_id
+    where u.def_flag = 0
+    and u.user_num = #{userNum}
+    and u.user_password = #{userPassword}
+  </select>
+
+
+  <!--
+    根据userNum和密码查找用户userId
+   -->
+  <select id="selectUserIdByUserNumAndPassword" parameterType="com.scy.running.model.TbUser" resultType="java.lang.Integer">
+    select
+    u.user_id
+    from  tb_user u
+    where  u.user_num = #{userNum}
+    and u.user_password = #{userPassword}
+  </select>
+
+<!--
+  根据手机号查询是否存在已经注册的用户
+ -->
+  <!--<select id="selectCountByUserCellPhone" resultType="java.lang.Integer" parameterType="java.lang.String">
+    select COUNT(u.user_id) from tb_user u where u.user_cell_phone = #{userCellPhone}
+  </select>-->
+
+  <!--
+      根据学号/教工号查询是否存在已经注册的用户
+  -->
+  <select id="selectCountByUserNum" resultType="java.lang.Integer" parameterType="java.util.Map">
+    select COUNT(u.user_id) from tb_user u
+    where u.user_num = #{userNum}
+    <if test="userId != null and userId != ''">
+      and u.user_id != #{userId}
+    </if>
+  </select>
+  <!--
+      根据学号/教工号查询是否存在已经注册的用户
+  -->
+ <!-- <select id="selectUserByUserNum" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select u.* from tb_user u where u.user_num = #{userNum}
+  </select>-->
+  <!--
+    根据用户的id查询是否分配了学号
+   -->
+  <select id="selectUserNumByUserId" resultType="java.lang.String" parameterType="java.lang.Integer">
+    select u.user_num from tb_user u where u.user_id = #{userId}
+  </select>
+
+
+  <resultMap id="TeacherResultMap" type="com.scy.running.model.TbUser">
+    <id column="user_id" property="userId" />
+    <result column="user_cell_phone" property="userCellPhone" />
+    <result column="user_num" property="userNum" />
+    <result column="user_real_name" property="userRealName" />
+    <result column="img" property="img" />
+  </resultMap>
+  <!--
+    查询所有的教师信息
+   -->
+  <select id="selectUsersByTokenNoPage" resultMap="TeacherResultMap" parameterType="java.lang.String">
+    select u.user_id, u.user_num, u.img, u.user_real_name, u.user_cell_phone
+    from tb_user u, tb_role r
+    where r.token = #{token}
+      and u.role_id = r.role_id
+      and u.def_flag = 0
+    order by u.user_id desc
+  </select>
+
+
+  <resultMap id="StudentResultMap" type="com.scy.running.model.TbUser">
+    <id column="user_id" property="userId" />
+    <result column="user_cell_phone" property="userCellPhone" />
+    <result column="user_num" property="userNum" />
+    <result column="user_real_name" property="userRealName" />
+    <result column="img" property="img" />
+  </resultMap>
+  <!--
+    查找所有没有教师的学生的信息
+   -->
+  <select id="selectAllStudentNoTeacherByToken" resultMap="StudentResultMap" parameterType="java.lang.String">
+    select u.user_id, u.user_num, u.img, u.user_real_name, u.user_cell_phone
+    from tb_user u, tb_role r
+    where r.token = #{token}
+      and u.teacher_id is null
+      and u.role_id = r.role_id
+      and u.def_flag = 0
+    order by u.user_id desc
+  </select>
+
+  <!--
+    根据teacherId查询该老师下的所有学生
+   -->
+  <select id="selectStudentListByTeacherId" resultMap="StudentResultMap" parameterType="java.lang.Integer">
+    select u.user_id, u.user_num, u.img, u.user_real_name, u.user_cell_phone, u.teacher_id
+    from tb_user u
+    where u.teacher_id = #{teacherId}
+      and u.def_flag = 0
+    order by u.user_id desc
+  </select>
+
+  <!--
+    根据teacherId查询该老师下的所有学生id
+   -->
+  <select id="selectStudentIdsByTeacherId" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+    select u.user_id
+    from tb_user u
+    where u.teacher_id = #{teacherId}
+      and u.def_flag = 0
+    order by u.user_id desc
+  </select>
+
+  <!--
+    根据id 注销用户
+   -->
+  <update id="cancelUserById" parameterType="java.lang.Integer">
+    update tb_user set def_flag = 1
+    where user_id = #{userId}
+  </update>
+
+  <!--
+    根据id 激活用户
+   -->
+  <update id="activateUserById" parameterType="java.lang.Integer">
+    update tb_user set def_flag = 0
+    where user_id = #{userId}
+  </update>
+
+  <update id="updateStudentTeacherIdToNullByUserId" parameterType="java.lang.Integer">
+    update tb_user set teacher_id = null
+    where teacher_id = #{userId}
+  </update>
+
+  <!--
+    根据用户id和角色id 认证用户角色
+   -->
+  <!--<update id="identifyUserRoleByUserIdAndRoleId" parameterType="java.util.Map">
+    update tb_user set role_id = #{roleId}
+    where user_id = #{userId}
+  </update>-->
+
+  <!--
+     通过学生id修改学生的教师id，修改成next
+   -->
+  <update id="updateTeacherToNextByUserId" parameterType="java.util.Map">
+    update tb_user set teacher_id = #{next}
+    where user_id = #{userId}
+  </update>
+
+
+</mapper>

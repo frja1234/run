@@ -1,0 +1,92 @@
+#公共配置
+server:
+  port: 9000
+  maxHttpHeaderSize: 102400
+  tomcat:
+    uri-encoding: UTF-8
+
+# 用户的重置密码
+userResetPass: 123456
+
+spring:
+  #激活哪一个环境的配置文件
+  profiles:
+    # 激活dev配置文件
+    active: dev
+  #视图配置
+  mvc:
+    # 静态资源访问
+    static-path-pattern: /**
+  aop:
+    proxy-target-class: true
+
+  freemarker:
+    allow-request-override: false
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+
+#日志
+logging:
+  config: classpath:logback.xml
+  # path: D:\logs\bems
+
+
+
+---
+#开发(dev)环境配置
+spring:
+  profiles: dev
+  #自定义配置属性
+  #视图配置
+  mvc:
+    static-path-pattern: /**
+  aop:
+    proxy-target-class: true
+  # 数据源
+  datasource:
+    # url
+    url: jdbc:mysql://192.168.232.131:3306/scy_running_service?serverTimezone=Asia/Shanghai&characterEncoding=utf8&useUnicode=true&useSSL=false&allowPublicKeyRetrieval=true&rewriteBatchedStatements=true
+    # 数据库的用户名
+    username: root
+    # 密码
+    password: 123456
+    # mysql5  驱动名
+    # driver-class-name: com.mysql.jdbc.Driver
+    # mysql6+ 驱动名
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    serialization:
+      write-dates-as-timestamps: false
+
+
+# 服务端配置
+server:
+  #端口
+  port: 9000
+  servlet:
+    context-path: /
+
+# mybatis-plus的配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    auto-mapping-behavior: full
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath*:mapper/**/*Mapper.xml
+  global-config:
+    # 逻辑删除配置
+    db-config:
+      # 删除前
+      logic-not-delete-value: 1
+      # 删除后
+      logic-delete-value: 0

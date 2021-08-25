@@ -1,0 +1,298 @@
+2021-07-27 08:34:41.213 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 08:34:41.215 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 22168 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 08:34:41.216 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 08:34:41.250 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 08:34:41.250 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 08:34:42.206 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 08:34:42.213 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 08:34:42.213 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 08:34:42.213 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 08:34:42.292 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 08:34:42.293 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1042 ms
+2021-07-27 08:34:43.063 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 08:34:43.186 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 08:34:43.375 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 08:34:43.387 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 08:34:43.388 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 08:34:43.401 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 08:34:43.423 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 08:34:43.568 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.649 seconds (JVM running for 3.5)
+2021-07-27 08:41:17.647 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 08:41:17.647 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 08:41:17.648 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 08:41:17.694 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 08:42:09.632 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 08:58:18.416 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 08:58:36.532 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 09:01:51.033 [http-nio-9000-exec-3] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 09:03:17.565 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 09:03:17.569 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 632 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 09:03:17.569 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 09:03:17.600 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 09:03:17.600 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 09:03:18.431 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 09:03:18.437 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 09:03:18.437 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 09:03:18.437 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 09:03:18.505 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 09:03:18.506 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 906 ms
+2021-07-27 09:03:18.978 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 09:03:19.049 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 09:03:19.183 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 09:03:19.194 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 09:03:19.195 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 09:03:19.204 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 09:03:19.222 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 09:03:19.338 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.034 seconds (JVM running for 2.868)
+2021-07-27 09:03:32.673 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 09:03:32.674 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 09:03:32.675 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 09:03:32.718 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 09:03:33.082 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 09:57:21.443 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 09:57:21.448 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 12116 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 09:57:21.448 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 09:57:21.479 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 09:57:21.480 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 09:57:22.572 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 09:57:22.578 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 09:57:22.579 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 09:57:22.579 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 09:57:22.655 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 09:57:22.655 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1175 ms
+2021-07-27 09:57:23.210 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 09:57:23.295 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 09:57:23.459 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 09:57:23.471 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 09:57:23.472 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 09:57:23.484 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 09:57:23.507 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 09:57:23.663 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.48 seconds (JVM running for 3.747)
+2021-07-27 09:57:50.231 [http-nio-9000-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 09:57:50.231 [http-nio-9000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 09:57:50.232 [http-nio-9000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-07-27 09:57:50.285 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 09:57:50.381 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:07:01.567 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 10:07:01.573 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 10:18:38.902 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:18:38.906 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 19376 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:18:38.906 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:18:38.934 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:18:38.934 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:18:39.746 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:18:39.752 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:18:39.753 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:18:39.753 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:18:39.820 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:18:39.820 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 886 ms
+2021-07-27 10:18:40.268 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:18:40.340 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:18:40.479 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:18:40.489 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:18:40.490 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:18:40.500 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:18:40.517 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:18:40.628 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 1.988 seconds (JVM running for 2.832)
+2021-07-27 10:18:54.982 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:18:54.982 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:18:54.983 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 10:19:06.850 [http-nio-9000-exec-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:19:06.918 [http-nio-9000-exec-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:20:15.065 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:20:15.069 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 2152 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:20:15.070 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:20:15.098 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:20:15.099 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:20:15.916 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:20:15.922 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:20:15.922 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:20:15.922 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:20:15.991 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:20:15.992 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 893 ms
+2021-07-27 10:20:16.441 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:20:16.509 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:20:16.636 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:20:16.645 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:20:16.646 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:20:16.655 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:20:16.671 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:20:16.777 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 1.974 seconds (JVM running for 2.82)
+2021-07-27 10:20:43.428 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:20:43.428 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:20:43.430 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2021-07-27 10:20:57.297 [http-nio-9000-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:20:57.377 [http-nio-9000-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:25:12.257 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:25:12.262 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 33420 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:25:12.262 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:25:12.296 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:25:12.296 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:25:13.278 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:25:13.285 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:25:13.285 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:25:13.285 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:25:13.359 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:25:13.360 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1064 ms
+2021-07-27 10:25:13.911 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:25:14.002 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:25:14.169 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:25:14.180 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:25:14.181 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:25:14.194 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:25:14.215 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:25:14.352 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.375 seconds (JVM running for 3.37)
+2021-07-27 10:25:17.512 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:25:17.513 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:25:17.513 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2021-07-27 10:25:31.758 [http-nio-9000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:25:31.854 [http-nio-9000-exec-6] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:26:58.687 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 10:26:58.691 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 10:27:55.367 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:27:55.371 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 12748 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:27:55.372 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:27:55.403 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:27:55.403 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:27:56.346 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:27:56.352 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:27:56.353 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:27:56.353 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:27:56.423 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:27:56.424 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1021 ms
+2021-07-27 10:27:56.935 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:27:57.021 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:27:57.184 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:27:57.195 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:27:57.196 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:27:57.207 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:27:57.228 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:27:57.367 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.279 seconds (JVM running for 3.229)
+2021-07-27 10:28:08.870 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:28:08.870 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:28:08.871 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 10:28:21.624 [http-nio-9000-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:28:21.703 [http-nio-9000-exec-5] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:30:01.063 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 10:30:01.068 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 10:35:58.472 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:35:58.476 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 3184 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:35:58.477 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:35:58.507 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:35:58.507 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:35:59.413 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:35:59.419 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:35:59.419 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:35:59.420 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:35:59.490 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:35:59.490 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 982 ms
+2021-07-27 10:36:00.002 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:36:00.089 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:36:00.244 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:36:00.256 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:36:00.257 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:36:00.268 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:36:00.289 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:36:00.425 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.241 seconds (JVM running for 3.132)
+2021-07-27 10:36:10.724 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:36:10.724 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:36:10.725 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 10:36:23.314 [http-nio-9000-exec-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:36:23.394 [http-nio-9000-exec-8] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:36:52.438 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 10:36:52.441 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 10:48:18.322 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:48:18.326 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 20720 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:48:18.326 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:48:18.358 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:48:18.358 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:48:19.259 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:48:19.265 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:48:19.266 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:48:19.266 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:48:19.338 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:48:19.338 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 980 ms
+2021-07-27 10:48:19.860 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:48:19.945 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:48:20.102 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:48:20.112 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:48:20.113 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:48:20.124 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:48:20.144 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:48:20.272 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.254 seconds (JVM running for 3.265)
+2021-07-27 10:48:33.520 [http-nio-9000-exec-1] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:48:33.520 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:48:33.521 [http-nio-9000-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 10:48:38.304 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:48:38.392 [http-nio-9000-exec-1] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 10:49:52.410 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 10:49:52.415 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 10:51:30.601 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 10:51:30.605 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 15156 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 10:51:30.605 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 10:51:30.636 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 10:51:30.636 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 10:51:31.566 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 10:51:31.573 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:51:31.573 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 10:51:31.573 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 10:51:31.648 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 10:51:31.648 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1012 ms
+2021-07-27 10:51:32.198 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 10:51:32.289 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 10:51:32.447 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 10:51:32.458 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 10:51:32.459 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 10:51:32.470 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 10:51:32.491 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 10:51:32.624 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.302 seconds (JVM running for 3.231)
+2021-07-27 10:52:21.411 [http-nio-9000-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 10:52:21.411 [http-nio-9000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 10:52:21.412 [http-nio-9000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 10:52:26.678 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 10:52:26.761 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2021-07-27 11:53:37.306 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2021-07-27 11:53:37.308 [SpringApplicationShutdownHook] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2021-07-27 14:10:50.983 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 14:10:50.986 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 28344 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 14:10:50.987 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 14:10:51.018 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 14:10:51.019 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 14:10:51.952 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 14:10:51.959 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 14:10:51.959 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 14:10:51.959 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 14:10:52.032 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 14:10:52.032 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1013 ms
+2021-07-27 14:10:52.541 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 14:10:52.629 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 14:10:52.800 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 14:10:52.811 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 14:10:52.812 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 14:10:52.823 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 14:10:52.844 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 14:10:52.984 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 2.293 seconds (JVM running for 3.272)
+2021-07-27 14:11:00.982 [background-preinit] INFO  org.hibernate.validator.internal.util.Version - HV000001: Hibernate Validator 6.0.1.Final
+2021-07-27 14:11:00.983 [restartedMain] INFO  com.scy.running.RunningApplication - Starting RunningApplication using Java 1.8.0_291 on LAPTOP-B3EUVJDM with PID 19084 (E:\idea_projects\running\target\classes started by 陈玮涛 in E:\idea_projects\running)
+2021-07-27 14:11:00.984 [restartedMain] INFO  com.scy.running.RunningApplication - The following profiles are active: dev
+2021-07-27 14:11:01.011 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2021-07-27 14:11:01.011 [restartedMain] INFO  o.s.b.d.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2021-07-27 14:11:01.767 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 9000 (http)
+2021-07-27 14:11:01.772 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-9000"]
+2021-07-27 14:11:01.772 [restartedMain] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2021-07-27 14:11:01.772 [restartedMain] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.48]
+2021-07-27 14:11:01.837 [restartedMain] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2021-07-27 14:11:01.837 [restartedMain] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 826 ms
+2021-07-27 14:11:02.274 [restartedMain] INFO  s.d.s.w.PropertySourcedRequestMappingHandlerMapping - Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-07-27 14:11:02.342 [restartedMain] INFO  o.s.b.d.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2021-07-27 14:11:02.467 [restartedMain] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-9000"]
+2021-07-27 14:11:02.476 [restartedMain] INFO  o.s.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 9000 (http) with context path ''
+2021-07-27 14:11:02.477 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Context refreshed
+2021-07-27 14:11:02.486 [restartedMain] INFO  s.d.s.web.plugins.DocumentationPluginsBootstrapper - Found 1 custom documentation plugin(s)
+2021-07-27 14:11:02.502 [restartedMain] INFO  s.d.spring.web.scanners.ApiListingReferenceScanner - Scanning for api listing references
+2021-07-27 14:11:02.607 [restartedMain] INFO  com.scy.running.RunningApplication - Started RunningApplication in 1.878 seconds (JVM running for 2.697)
+2021-07-27 15:05:39.086 [http-nio-9000-exec-2] INFO  o.a.c.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-07-27 15:05:39.086 [http-nio-9000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2021-07-27 15:05:39.087 [http-nio-9000-exec-2] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2021-07-27 15:05:39.137 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2021-07-27 15:05:39.228 [http-nio-9000-exec-2] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.

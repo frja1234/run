@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.scy.running.mapper.TbClassMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="BaseResultMap" type="com.scy.running.model.TbClass">
+    <id column="class_id" property="classId" />
+    <result column="class_name" property="className" />
+    <result column="class_code" property="classCode" />
+
+    <association property="college" javaType="com.scy.running.model.TbCollege">
+      <id column="college_id" property="collegeId" />
+      <!-- 写出需要查询的字段 -->
+      <result column="college_name" property="collegeName" />
+      <result column="college_code" property="collegeCode" />
+    </association>
+  </resultMap>
+
+  <!-- 通用查询结果列 -->
+  <sql id="Base_Column_List">
+    tcl.class_id, tcl.class_name, tcl.class_code
+   </sql>
+
+
+  <!--
+        查找所有班级信息
+    -->
+  <select id="selectClass" resultMap="BaseResultMap" parameterType="com.scy.running.model.TbClass">
+    select
+    <include refid="Base_Column_List" />
+    , tco.college_id, tco.college_name, tco.college_code
+    from  tb_class tcl
+    LEFT JOIN tb_college tco ON tco.college_id = tcl.college_id
+    where 1=1
+    <if test="obj.classId != null">
+      and tcl.class_id = #{obj.classId}
+    </if>
+    <if test="obj.className != null and obj.className != ''"> <!-- concat(concat('%', #{permissionName}), '%')  -->
+      and tcl.class_name LIKE concat('%', #{obj.className}, '%')
+    </if>
+    <if test="obj.collegeId != null">
+      and tco.college_id = #{obj.collegeId}
+    </if>
+    order by tcl.class_id desc
+  </select>
+
+  <!--
+    查找所有得班级信息
+   -->
+  <select id="selectClassAll" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    , tco.college_id, tco.college_name, tco.college_code
+    from  tb_class tcl
+    LEFT JOIN tb_college tco ON tco.college_id = tcl.college_id
+    order by tcl.class_id desc
+  </select>
+
+  <!--
+      根据班级代码查询是否存在班级
+  -->
+  <select id="selectCountByClassCode" resultType="java.lang.Integer" parameterType="java.util.Map">
+    select COUNT(tcl.class_id) from tb_class tcl
+    where tcl.class_code = #{classCode}
+    <if test="classId != null and classId != ''">
+      and tcl.class_id != #{classId}
+    </if>
+  </select>
+
+
+  <resultMap id="BaseResultMapTwo" type="com.scy.running.model.TbClass">
+    <id column="class_id" property="classId" />
+    <result column="class_name" property="className" />
+    <result column="class_code" property="classCode" />
+    <result column="college_id" property="collegeId" />
+  </resultMap>
+  <!--
+   查找班级信息
+ -->
+  <select id="selectClassById" resultMap="BaseResultMapTwo"  parameterType="java.lang.Integer">
+    select
+      tcl.class_id, tcl.class_name, tcl.class_code, tcl.college_id
+    from
+    tb_class tcl
+    where
+      tcl.class_id = #{classId}
+  </select>
+
+
+  <!--
+    班级下的学生的classId设为null
+  -->
+  <update id="updateUserClassIdToNullByClassId" parameterType="java.lang.Integer">
+    update tb_user set class_id = null
+    where class_id = #{classId}
+  </update>
+
+  <!--
+    根据classIdList查询到相应的userId集合
+  -->
+  <select id="selectUserIdByClassIdList" parameterType="java.util.List" resultType="java.lang.Integer">
+    select u.user_id from tb_user u where u.class_id in
+    <foreach collection="list" item="classIdList" open="(" separator="," close=")">
+        #{classIdList}
+    </foreach>
+  </select>
+
+</mapper>
